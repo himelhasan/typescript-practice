@@ -8,10 +8,22 @@ interface User {
   getCoupon(couponName: string, off: number): number;
 }
 
-const himel: User = {
+// reopening of the interface
+
+interface User {
+  githubId: string;
+}
+
+interface Admin extends User {
+  role: "admin" | "editor" | "learner";
+}
+
+const himel: Admin = {
   dbId: 34,
+  role: "admin",
   email: "me@example.com",
   userId: 34,
+  githubId: "fgesd345wr90d",
   startTrail: () => {
     return "trail started";
   },
