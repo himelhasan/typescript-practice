@@ -30,5 +30,19 @@ createUser({
   email: "ftg",
   isActive: false,
 });
+type cardDate = {
+  cardDate: String;
+};
+let cardDate: cardDate = {
+  cardDate: "asedas",
+};
+type cardNumber = {
+  cardNumber: Number;
+};
+
+type cardDetails = cardDate &
+  cardNumber & {
+    cvv: Number;
+  };
 
 export {};
