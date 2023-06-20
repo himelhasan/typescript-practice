@@ -25,3 +25,13 @@ interface Bottle {
 }
 
 four<Bottle>({ brand: "Pran", price: 234 });
+
+function getSearchProducts<T>(products: T[]): T {
+  // database functions
+  const myIndex = 3;
+  return products[myIndex];
+}
+
+const getProducts = <T>(products: T[]): T => {
+  return products[0];
+};
