@@ -75,8 +75,10 @@ type Shape = Circle | Square | Rectangle;
 function getTrueShape(shape: Shape) {
   if (shape.kind === "Circle") {
     return Math.PI * shape.radius ** 2;
+  } else if (shape.kind === "Square") {
+    return shape.side * shape.side;
   }
-  // return shape.side * shape.side;
+  return shape.width * shape.length;
 }
 
 const getArea = (shape: Shape) => {
