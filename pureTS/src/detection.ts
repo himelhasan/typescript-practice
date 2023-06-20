@@ -55,21 +55,40 @@ function isAdmin(user: User | Admin): boolean {
   return false;
 }
 
-interface Quiz {
-  name: string;
-  type: string;
+interface Circle {
+  kind: "Circle";
+  radius: number;
+}
+interface Square {
+  kind: "Square";
+  side: number;
 }
 
-interface Course {
-  name: string;
-  author: string;
-  subject: string;
+interface Rectangle {
+  kind: "Rectangle";
+  length: number;
+  width: number;
 }
 
-class Sellable<T> {
-  public cart: T[] = [];
+type Shape = Circle | Square | Rectangle;
 
-  addToCart(product: T) {
-    this.cart.push(product);
+function getTrueShape(shape: Shape) {
+  if (shape.kind === "Circle") {
+    return Math.PI * shape.radius ** 2;
   }
+  // return shape.side * shape.side;
 }
+
+const getArea = (shape: Shape) => {
+  switch (shape.kind) {
+    case "Circle":
+      return Math.PI * shape.radius ** 2;
+    case "Square":
+      return shape.side * shape.side;
+    case "Rectangle":
+      return shape.width * shape.length;
+    default:
+      const extraCheck: never = shape;
+      return extraCheck;
+  }
+};
